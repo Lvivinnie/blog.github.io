@@ -29,11 +29,11 @@
         
         <ul>
           
-            <a href="/" class="Btn">
+            <a href="./" class="Btn">
               <li>Home</li>
             </a>  
           
-            <a href="/archives/" class="Btn">
+            <a href="archives/" class="Btn">
               <li>Archive</li>
             </a>  
           
@@ -53,7 +53,15 @@
     </header>
 
     <section>
-      
+      <p>在执行了hexo的部署命令后出现了css样式的问题，导致页面只有html结构</p>
+<h2 id="快速解决问题"><a href="#快速解决问题" class="headerlink" title="快速解决问题"></a>快速解决问题</h2><h3 id="快速排查"><a href="#快速排查" class="headerlink" title="快速排查"></a>快速排查</h3><p>在浏览器中按f12，打开开发者工具。<br>可以看到获取css文件返回404</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET https://lvivinnie.github.io/css....style.css 404</span><br></pre></td></tr></table></figure>
+<p>这是因为我们的根目录不是 <a href="https://lvivinnie.github.io/">https://lvivinnie.github.io/</a><br>而是<a href="https://lvivinnie.github.io/blog.github.io/">https://lvivinnie.github.io/blog.github.io/</a><br>所以正确的css样式表的路径应该是<a href="https://lvivinnie.github.io/blog.github.io/css....style.css">https://lvivinnie.github.io/blog.github.io/css....style.css</a><br>通过我们访问页面的首页url就能够找到css对应路径</p>
+<h3 id="如何解决"><a href="#如何解决" class="headerlink" title="如何解决"></a>如何解决</h3><p>将hexo项目中的_config文件中的url修改为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url: https://lvivinnie.github.io/blog.github.io/</span><br></pre></td></tr></table></figure>
+<h3 id="生成部署"><a href="#生成部署" class="headerlink" title="生成部署"></a>生成部署</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<h3 id="最后注意"><a href="#最后注意" class="headerlink" title="最后注意"></a>最后注意</h3><p>git上托管网站在部署以后有一定延时，请耐心等待几分钟再刷新！</p>
+
 
       
 
@@ -66,6 +74,15 @@
               2023-03-21
             </time>
           </div>
+          
+            <div>
+              tags: 
+  <li class="meta-text">
+  { <a href="/blog.github.io/tags/hexo/">hexo</a> }
+  </li>
+
+
+            </div>
           
       </section>
     
